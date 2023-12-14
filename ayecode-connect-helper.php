@@ -12,7 +12,7 @@ if ( ! class_exists( "AyeCode_Connect_Helper" ) ) {
 	class AyeCode_Connect_Helper {
 
 		// Hold the version number
-		var $version = "1.0.3";
+		var $version = "1.0.4";
 
 		// Hold the default strings.
 		var $strings = array();
