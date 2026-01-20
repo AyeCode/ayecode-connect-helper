@@ -93,6 +93,13 @@ if ( ! class_exists( "AyeCode_Connect_Helper" ) ) {
 		 * Install and activate the AyeCode Connect Plugin
 		 */
 		public function ayecode_connect_install() {
+			// Security check.
+			check_ajax_referer( 'ayecode-connect-helper', 'security' );
+
+			if ( ! current_user_can( 'manage_options' ) ) {
+				wp_send_json_error( $this->strings['error'] );
+			}
+
 			// bail if localhost
 			if ( $this->is_localhost() ) {
 				wp_send_json_error( $this->strings['error_localhost'] );
